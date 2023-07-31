@@ -1,0 +1,25 @@
+{
+  "name": "assignment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node question4.js",
+    "test": "node test.js",
+    "question1": "node question1.js",
+    "question2": "node question2.js",
+    "question3": "node question3.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "adm-zip": "^0.5.10",
+    "archiver": "^5.3.1",
+    "mysql": "^2.18.1",
+    "node-fetch": "^3.3.2",
+    "node-static": "^0.7.11",
+    "nodemon": "^3.0.1",
+    "sequelize": "^6.32.1",
+    "ws": "^8.13.0"
+  }
+}
