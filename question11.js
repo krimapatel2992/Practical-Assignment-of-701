@@ -1,18 +1,14 @@
-const http = require('http');
-const url = require('url');
-const static = require('node-static');
+// import fetch from 'node-fetch'
+async function getScore() {
+    try {
+    const fetch=await import('node-fetch')
+const response = await
+fetch("https://api.cricapi.com/v1/currentMatches?apikey=9a070f69-58aa-447a-b950-6358a39bf75e&offset=0");
+const { data } = await response.json();
+console.log(data);
+} catch (err) {
+console.log(err)
+}
+}
+getScore();
 
-const fileServer = new static.Server('./files/question11.html');
-
-var server = http.createServer(function (req, res) {
-
-    var u1 = url.parse(req.url, true);
-    console.log(u1.pathname);
-    if (u1.pathname == "/") {
-        fileServer.serve(req, res);
-    }
-});
-
-server.listen(8080,()=>{
-    console.log("server listen on 8080");
-})

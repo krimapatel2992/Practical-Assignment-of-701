@@ -5,22 +5,19 @@ var url = require('url');
 var st = require('node-static');
 
 var fileClient = new st.Server('./files/question4(1).html');
-var fileServer =new st.Server('./files/question4(2).html')
+// var fileServer =new st.Server('./files/question4(2).html')
 
 var httpserver = http.createServer(function(request, response) 
 {
     var u1=url.parse(request.url,true)
-    if(u1.pathname=='/client')
-    {
-        fileClient.serve(request,response);
-    }
-    else if(u1.pathname=='/server')
-    {
-fileServer.serve(request,response);
-    }
+    
+//     else if(u1.pathname=='/server')
+//     {
+// fileServer.serve(request,response);
+//     }
 	request.on('end', function () {
 	var get = url.parse(request.url, true).query;
-	fileServer.serve(request, response);
+	fileClient.serve(request, response);
 	}).resume();
 
 }).listen(8080, function() {
